@@ -1,0 +1,30 @@
+<?php
+
+namespace Database\Seeds;
+
+require_once 'vendor/autoload.php';
+
+use Database\AbstractSeeder;
+
+class SeederExample extends AbstractSeeder
+{
+    protected ?string $tableName = 'example';
+    protected array $tableColumns = [
+        [
+            'data_type' => 'string',
+            'column_name' => 'name'
+        ]
+    ];
+
+    public function createRowData(): array
+    {
+        return [
+            ...array_map(function () {
+                return [
+                    \Faker\Factory::create()->name,
+                ];
+
+            }, range(0, 9))
+        ];
+    }
+}
