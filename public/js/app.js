@@ -3,6 +3,8 @@ const languageItems = languageList.querySelectorAll('.language-item')
 const downloadBtn = document.getElementById('download-btn')
 const extensions = { "Javascript": "js", "Python": "py", "PHP": "php", "Ruby": "rb", "Java": "java", "C": "c", "C#": "cs", "C++": "cpp", "Swift": "swift", "Go": "go", "Scala": "scala", "Kotlin": "kt", "Typescript": "ts", "Rust": "rs", "Shell": "sh", "SQL": "sql", "Plaintext": "txt" };
 
+languageItems[0].setAttribute('class', 'language-item selected')
+
 // Monaco Editor
 require.config({
     paths: {
@@ -26,6 +28,10 @@ require(['vs/editor/editor.main'], () => {
     // 言語のドロップダウンリストのクリックイベント
     languageItems.forEach(item => {
         item.addEventListener('click', () => {
+            const prev = languageList.querySelector('.selected')
+            prev.setAttribute('class', 'language-item')
+            item.setAttribute('class', 'language-item selected')
+
             const language = item.textContent
             downloadBtn.textContent = `Download .${extensions[language]} file`
             downloadBtn.setAttribute('download', `new_snippet.${extensions[language]}`)
@@ -34,7 +40,41 @@ require(['vs/editor/editor.main'], () => {
             monaco.editor.setModelLanguage(editor.getModel(), language.toLowerCase())
         })
     })
+
+    // コピーボタンのクリックイベント
+    const copyBtn = document.getElementById('copy-btn')
+    copyBtn.addEventListener('click', () => {
+        const code = editor.getValue()
+        // ナビゲータークリップボードAPIを使用してコピー
+        navigator.clipboard.writeText(code).then(() => {
+            copyBtn.textContent = 'Copied the code!'
+            setTimeout(() => {
+                copyBtn.textContent = 'Copy'
+            }, 500)
+        })
+    })
+
+    // ダウンロードボタンのクリックイベント
+    downloadBtn.addEventListener('click', () => {
+        // 選択されている言語を取得
+        // querySelectorAllはNodeListを返すので、findメソッドをサポートしている配列に変換
+        const language = Array.from(languageItems).find(item => item.getAttribute('class') === 'language-item selected').textContent
+        const extension = extensions[language]
+        const code = editor.getValue()
+
+        const blob = new Blob([code], { type: 'text/plain' })
+        const url = URL.createObjectURL(blob)
+
+        const a = document.createElement('a')
+        a.href = url
+        a.download = `new_snippet.${extension}`
+        a.click()
+        // メモリリークを防ぐためにURLを解放
+        URL.revokeObjectURL(url)
+    })
 })
+
+
 
 
 
