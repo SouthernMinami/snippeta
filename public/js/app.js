@@ -76,7 +76,7 @@ require(['vs/editor/editor.main'], () => {
 
     // 投稿ボタンのクリックイベント
     postBtn.addEventListener('click', async (e) => {
-
+        e.preventDefault()
 
         const reqJSON = {
             "title": document.getElementById('title').value,
@@ -89,7 +89,7 @@ require(['vs/editor/editor.main'], () => {
         await fetch('../../Database/Seeds/SnippetsSeeder.php', {
             method: 'POST',
             headers: {
-                'Content-Type': 'text/plain'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(reqJSON)
         })
