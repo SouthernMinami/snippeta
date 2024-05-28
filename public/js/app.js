@@ -89,12 +89,19 @@ require(['vs/editor/editor.main'], () => {
         await fetch('../../Database/Seeds/SnippetsSeeder.php', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'text/plain'
             },
             body: JSON.stringify(reqJSON)
         })
-
-        alert('Your snippet has been posted!')
+            .then(res => res.text())
+            .then(data => {
+                console.log(data)
+                alert('投稿しました')
+            })
+            .catch(err => {
+                console.error(err)
+                alert('投稿に失敗しました')
+            })
     })
 })
 
