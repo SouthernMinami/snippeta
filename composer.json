@@ -1,4 +1,15 @@
 {
+    "autoload": {
+        "psr-4": {
+            "Commands\\": "Commands/",
+            "Database\\": "Database/",
+            "Exceptions\\": "Exceptions/",
+            "Helpers\\": "Helpers/",
+            "Views\\": "Views/",
+            "Responses\\": "Responses/",
+            "Routing\\": "Routing/"
+        }
+    },
     "require": {
         "fakerphp/faker": "^1.23",
         "nesbot/carbon": "^3.3"
