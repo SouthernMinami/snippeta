@@ -75,10 +75,10 @@ require(['vs/editor/editor.main'], () => {
     })
 
     // 投稿ボタンのクリックイベント
-    postBtn.addEventListener('click', async (e) => {
-        e.preventDefault()
+    postBtn.addEventListener('click', (e) => {
+        // e.preventDefault()
 
-        const reqJSON = {
+        const postData = {
             "title": document.getElementById('title').value,
             "language": Array.from(languageItems).find(item => item.getAttribute('class') === 'language-item selected').textContent,
             "url": "https://localhost:8000/snippet?id=",
@@ -86,12 +86,12 @@ require(['vs/editor/editor.main'], () => {
             "expirationDate": document.getElementById('expiration').value
         }
 
-        await fetch('../../Database/Seeds/SnippetsSeeder.php', {
+        fetch('/execSeedCmd.php', {
             method: 'POST',
             headers: {
-                'Content-Type': 'text/plain'
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(reqJSON)
+            body: JSON.stringify(postData)
         })
             .then(res => res.text())
             .then(data => {

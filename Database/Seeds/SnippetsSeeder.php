@@ -8,18 +8,7 @@ use Database\AbstractSeeder;
 use Database\MySQLWrapper;
 
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-header("Access-Control-Allow-Headers: Content-Type");
-
-// POSTリクエストを受け取った初回だけ、php console seedを実行
-if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    $output = [];
-    $return_var = null;
-    exec('php ../../console seed', $output, $return_var);
-    // コマンド実行結果を出力して確認
-    print_r($output);
-    echo "Return status: " . $return_var;
-}
+header("Content-Type: application/json; charset=UTF-8");
 
 class SnippetsSeeder extends AbstractSeeder
 {
@@ -48,7 +37,6 @@ class SnippetsSeeder extends AbstractSeeder
     ];
 
     protected MySQLWrapper $db;
-    protected string $data;
 
     public function getRowCount(): int
     {
@@ -66,9 +54,11 @@ class SnippetsSeeder extends AbstractSeeder
     public function createRowData(): array
     {
         $id = $this->getRowCount() + 1;
+
+        $input_json = file_get_contents('php://input');
+        $data = json_decode($input_json, true);
         // ここが突破できない
-        $input = file_get_contents('php://input') ?: null;
-        if ($input === null) {
+        if ($data === null) {
             return [
                 [
                     'Error: No input',
@@ -79,23 +69,21 @@ class SnippetsSeeder extends AbstractSeeder
                 ]
             ];
         }
-        $this->data = json_decode($input, true);
+
         if (json_last_error() !== JSON_ERROR_NONE) {
             error_log('JSON decode error');
             return [];
         }
 
-        echo json_encode($this->data, JSON_PRETTY_PRINT);
-        $this->data['url'] .= $id;
+        echo json_encode($data, JSON_PRETTY_PRINT);
+        $data['url'] .= $id;
 
         return [
-            $this->data['title'],
-            $this->data['language'],
-            $this->data['content'],
-            $this->data['url'],
-            $this->data['expiration_date'],
+            $data['title'],
+            $data['language'],
+            $data['content'],
+            $data['url'],
+            $data['expiration_date'],
         ];
-
     }
 }
-
