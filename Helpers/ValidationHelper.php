@@ -15,4 +15,12 @@ class ValidationHelper
 
         return $value;
     }
+
+    public static function string($value): string
+    {
+        if (!is_string($value))
+            throw new \InvalidArgumentException("The provided value is not a valid string.");
+
+        return $value;
+    }
 }
