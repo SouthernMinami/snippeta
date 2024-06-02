@@ -27,10 +27,10 @@ abstract class AbstractSeeder implements Seeder
         $this->conn = $conn;
     }
 
-    public function seed(): void
+    public function seed($dataStr): void
     {
         // データを作成
-        $data = $this->createRowData();
+        $data = $this->createRowData($dataStr);
 
         if ($this->tableName === null)
             throw new \Exception('Class requires a table name');

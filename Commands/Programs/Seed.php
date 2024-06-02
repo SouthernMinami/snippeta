@@ -3,6 +3,7 @@
 namespace Commands\Programs;
 
 use Commands\AbstractCommand;
+use Commands\Argument;
 use Database\MySQLWrapper;
 use Database\Seeder;
 
@@ -12,16 +13,19 @@ class Seed extends AbstractCommand
 
     public static function getArgs(): array
     {
-        return [];
+        return [
+            (new Argument('data'))->description('Data to seed')->required(true)->allowAsShort(true)
+        ];
     }
 
     public function execute(): int
     {
-        $this->runAllSeeds();
+        $dataStr = $this->getArgValue('data');
+        $this->runAllSeeds($dataStr);
         return 0;
     }
 
-    function runAllSeeds(): void
+    function runAllSeeds(string $dataStr): void
     {
         $directory_path = __DIR__ . '/../../Database/Seeds';
 
@@ -38,7 +42,7 @@ class Seed extends AbstractCommand
 
                 if (class_exists($class_name) && is_subclass_of($class_name, Seeder::class)) {
                     $seeder = new $class_name(new MySQLWrapper());
-                    $seeder->seed();
+                    $seeder->seed($dataStr);
                 } else
                     throw new \Exception('Seeder must be a class that subclasses the seeder interface');
             }

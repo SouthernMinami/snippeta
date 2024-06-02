@@ -75,18 +75,16 @@ require(['vs/editor/editor.main'], () => {
     })
 
     // 投稿ボタンのクリックイベント
-    postBtn.addEventListener('click', (e) => {
-        // e.preventDefault()
-
+    postBtn.addEventListener('click', () => {
         const postData = {
             "title": document.getElementById('title').value,
             "language": Array.from(languageItems).find(item => item.getAttribute('class') === 'language-item selected').textContent,
-            "url": "https://localhost:8000/snippet?id=",
+            "path": "",
             "content": editor.getValue(),
             "expirationDate": document.getElementById('expiration').value
         }
 
-        fetch('/execSeedCmd.php', {
+        fetch('/Helpers/execSeedCmd.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

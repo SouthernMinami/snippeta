@@ -4,7 +4,7 @@ namespace Database;
 
 interface Seeder
 {
-    public function seed(): void;
+    public function seed(string $dataStr): void;
 
-    public function createRowData(): array;
+    public function createRowData(string $dataStr): array;
 }
