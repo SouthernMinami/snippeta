@@ -9,8 +9,8 @@ spl_autoload_register(function ($class) {
 });
 
 $commands = include "Commands/registry.php";
-// 第２引数（実際に実行するコマンド）
-// (第１引数はスクリプトの実行に使う名前　console)
+// argv[1]（実際に実行するコマンド）
+// (argv[0]はスクリプトの実行に使う名前　console)
 // (例：php console migrate)
 $inputCommand = $argv[1];
 

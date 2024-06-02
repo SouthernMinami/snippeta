@@ -31,19 +31,19 @@ abstract class AbstractCommand implements Command
         // グローバルスコープの引数の配列を取得
         $args = $GLOBALS['argv'];
         // エイリアスのインデックスを検索
-        $startIndex = array_search($this->getAlias(), $args);
+        $startIndex = array_search($this->getAlias(), $args); // argsの2番目：コマンド名にあたる
 
         // エイリアスが見つからない場合は例外をスロー
         // それ以外の場合は、エイリアスのインデックスをインクリメント
         if ($startIndex === false)
             throw new Exception(sprintf("%sというエイリアスが見つかりませんでした。", $this->getAlias()));
         else
-            $startIndex++;
+            $startIndex++; // argsの3番目
 
         $shellArgs = [];
 
-        // エイリアスの次の引数が存在しないか、次の引数がオプション(-)の場合で、
-        // コマンドの値が必要な場合は例外をスロー
+        // コマンド名の次に引数が存在しないか、次の引数がオプション(-)の場合で、
+        // コマンド名の次にオプションでない値が必須な場合は例外をスロー
         // それ以外の場合は、エイリアスの次の引数を引数マップに追加し、インデックスをインクリメント
         if (!isset($args[$startIndex]) || $args[$startIndex][0] === '-') {
             if ($this->isCommandValueRequired()) {
@@ -70,7 +70,7 @@ abstract class AbstractCommand implements Command
 
             // 次のargsエントリがオプション(-)でない場合は引数値として扱う
             if (isset($args[$i + 1]) && $args[$i + 1] !== '-') {
-                $shellArgs[$key] = $args[$i + 1];
+                $shellArgs[$key] = $args[$i + 1]; // '--' => $args[$i + 1]
                 $i++;
             }
         }
