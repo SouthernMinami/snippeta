@@ -94,7 +94,6 @@ require(['vs/editor/editor.main'], () => {
             .then(res => res.text())
             .then(data => {
                 console.log(data)
-                alert('投稿しました')
             })
             .catch(err => {
                 console.error(err)
