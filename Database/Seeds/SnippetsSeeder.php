@@ -7,9 +7,6 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 use Database\AbstractSeeder;
 use Database\MySQLWrapper;
 
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-
 class SnippetsSeeder extends AbstractSeeder
 {
     protected ?string $tableName = 'snippets';
