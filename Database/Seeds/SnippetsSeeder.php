@@ -28,7 +28,7 @@ class SnippetsSeeder extends AbstractSeeder
         ],
         [
             'data_type' => 'string',
-            'column_name' => 'url'
+            'column_name' => 'path'
         ],
         [
             'data_type' => 'string',
