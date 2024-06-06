@@ -53,31 +53,6 @@ class SnippetsSeeder extends AbstractSeeder
 
     public function createRowData(string $dataStr): array
     {
-        // $id = $this->getRowCount() + 1;
-
-        // $input_json = file_get_contents('php://input');
-        // $data = json_decode($input_json, true);
-        // // ここが突破できない
-        // if ($data === null) {
-        //     return [
-        //         [
-        //             'Error: No input',
-        //             'Error: No input',
-        //             'Error: No input',
-        //             'Error: No input',
-        //             '2021-12-31'
-        //         ]
-        //     ];
-        // }
-
-        // if (json_last_error() !== JSON_ERROR_NONE) {
-        //     error_log('JSON decode error');
-        //     return [];
-        // }
-
-        // echo json_encode($data, JSON_PRETTY_PRINT);
-        // $data['url'] .= $id;
-
         $data_array = explode(',', $dataStr);
 
         return [
