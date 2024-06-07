@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         crossorigin="anonymous">
 
-    <title>Snippet Sharing Service</title>
+    <title>Snippeta / スニペタ</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         <nav>
             <ul className="navbar flex items-center w-full h-full space-x-4">
                 <li className="nav-item text-4xl font-bold text-white pb-2 pl-3 pr-2">
-                    <h1><a href="/" class="logo">Snippet Sharing Service</a></h1>
+                    <h1><a href="/" class="logo">Snippeta</a></h1>
                 </li>
                 <li className="flex items-center justify-between text-slate-400">
                     <p><a href="/snippets">Find shared snippets</a></p>
