@@ -14,12 +14,12 @@ namespace Views;
     <h1 class="page-title">Snippet</h1>
 </div>
 <div class="snippet-info">
-    <h3>Title: <?php echo $snippet['title']; ?></h2>
-    <p>Language: <?php echo $snippet['language']; ?></p>
-    <p>Expiration Date: <?php echo $snippet['expiration_date']; ?></p>
-    <p>Created At: <?php echo $snippet['created_at']; ?></p>
-</div>  
-<div class="content"> 
+    <h3>Title: <?php echo htmlspecialchars($snippet['title'], ENT_QUOTES, 'UTF-8'); ?></h2>
+        <p>Language: <?php echo htmlspecialchars($snippet['language'], ENT_QUOTES, 'UTF-8'); ?></p>
+        <p>Expiration Date: <?php echo htmlspecialchars($snippet['expiration_date'], ENT_QUOTES, 'UTF-8'); ?></p>
+        <p>Created At: <?php echo htmlspecialchars($snippet['created_at'], ENT_QUOTES, 'UTF-8'); ?></p>
+</div>
+<div class="content">
     <?php include './Views/component/editor.php'; ?>
 </div>
 
