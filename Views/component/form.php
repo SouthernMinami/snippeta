@@ -1,4 +1,4 @@
-<form id="post-form" method="POST">
+<form id="post-form" method="POST" class="post-form">
     <div class="form-group">
         <label for="title">Snippet Title</label>
         <input type="text" class="form-control" id="title" name="title" required>

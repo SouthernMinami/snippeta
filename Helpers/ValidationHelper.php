@@ -23,4 +23,13 @@ class ValidationHelper
 
         return $value;
     }
+
+    public static function path($path, string $prefix)
+    {
+        // パスの先頭がprefixと一致する場合、prefixをパスとして返す
+        if (strpos($path, $prefix) === 0)
+            return $prefix;
+
+        return $path;
+    }
 }

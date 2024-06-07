@@ -8,7 +8,5 @@
 </footer>
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.41.0/min/vs/loader.min.js"></script>
-<script src="public/js/app.js"></script>
 
 </html>

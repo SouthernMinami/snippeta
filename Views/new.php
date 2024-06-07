@@ -10,4 +10,8 @@ namespace Views;
 </div>
 <div class="content">
     <?php include './Views/component/editor.php'; ?>
+    <?php include './Views/component/form.php'; ?>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.41.0/min/vs/loader.min.js"></script>
+<script src="../public/js/app_new.js"></script>

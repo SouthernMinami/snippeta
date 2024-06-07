@@ -21,5 +21,4 @@ $languages = ["Javascript", "Python", "PHP", "Ruby", "Java", "C", "C#", "C++", "
     <div class="editor-body">
         <div id="editor" class="editor"></div>
     </div>
-    <?php include './Views/component/form.php'; ?>
 </div>
