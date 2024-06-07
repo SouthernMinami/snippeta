@@ -94,10 +94,11 @@ require(['vs/editor/editor.main'], () => {
             .then(res => res.text())
             .then(data => {
                 console.log(data)
+                alert('Posted a new snippet!')
             })
             .catch(err => {
                 console.error(err)
-                alert('投稿に失敗しました')
+                alert('Failed to post.')
             })
     })
 })
