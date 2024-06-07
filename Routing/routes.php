@@ -17,5 +17,10 @@ return [
         $snippetInfo = DatabaseHelper::getSnippet($hash);
 
         return new HTMLRenderer('snippet', ['snippet' => $snippetInfo]);
-    }
+    },
+    'shared_snippets' => function (): HTMLRenderer {
+        $snippets = DatabaseHelper::getSnippets();
+
+        return new HTMLRenderer('shared_snippets', ['snippets' => $snippets]);
+    },
 ];

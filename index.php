@@ -21,20 +21,12 @@ $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $path = ltrim($path, '/');
 // パスがsnippetから始まる場合、/{hash}の部分は除く
 $validPath = ValidationHelper::path($path, 'snippet');
-$hash = '';
-if ($validPath === 'snippet') {
-    $hash = explode('/', $path)[1];
-}
 
 // デフォルトでnewページを表示
 if ($validPath === '') {
     header('Location: /new');
     exit();
 }
-// else if ($validPath === 'snippet') {
-//     header('Location: /snippet/' . $hash);
-//     exit();
-// }
 
 // ルートパスの一致を確認
 if (isset($routes[$validPath])) {

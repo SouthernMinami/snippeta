@@ -19,12 +19,15 @@
                 <li className="nav-item text-4xl font-bold text-white pb-2 pl-3 pr-2">
                     <h1><a href="/" class="logo">Snippeta</a></h1>
                 </li>
-                <li className="flex items-center justify-between text-slate-400">
-                    <p><a href="/snippets">Find shared snippets</a></p>
-                </li>
-                <li className="flex items-center justify-between text-slate-400">
-                    <p><a href="/howto">How to use</a></p>
-                </li>
+                <div class="links">
+                    <li className="nav-item nav-link flex items-center justify-between text-slate-400">
+                        <p><a href="/shared_snippets">Find shared snippets</a></p>
+                    </li>
+                    <li className="nav-item nav-link flex items-center justify-between text-slate-400">
+                        <p><a href="/howto">How to use</a></p>
+                    </li>
+                </div>
+
             </ul>
         </nav>
     </header>

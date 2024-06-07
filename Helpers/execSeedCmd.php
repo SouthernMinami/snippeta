@@ -26,5 +26,5 @@ if ($return_var !== 0) {
 }
 
 // /snippet/path にリダイレクト
-header('Location: /snippet/' . $path);
-exit();
+// header('Location: /snippet/' . $path);
+// exit();

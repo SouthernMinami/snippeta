@@ -47,6 +47,14 @@ a {
     color: #fff;
 }
 
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.7rem;
+}
+
 .title-container {
     display: flex;
     flex-direction: column;
@@ -101,4 +109,80 @@ a {
 .post-form {
     width: 100%;
     padding: .8rem;
+}
+
+
+table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #4b4646;
+}
+
+.table-head {
+    display: flex;
+    width: 100%;
+}
+
+.th {
+    padding: 10px 0;
+    width: 25%;
+    text-align: center;
+    background: #4b4646;
+    color: #fff;
+}
+
+.table-row {
+    display: flex;
+}
+
+.tr {
+    display: flex;
+    width: 100%;
+}
+
+.td {
+    padding: 10px 20px;
+    width: 25%;
+    text-align: center;
+    color: #000;
+    border-bottom: 1px solid #75696948;
+}
+
+.pagination {
+    padding: 2px 10px;
+    margin: 3rem 0.5rem;
+}
+
+.pagination-btn {
+    padding: 10px 20px;
+    background: #1bcdd3;
+    color: #1a1717;
+    border: 1px solid #1a1717;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rounded-l {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.rounded-r {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.bg-skyblue {
+    background: #1bcdd3;
+}
+
+.bg-gray {
+    background: #d6d4d4;
+}
+
+.pagination-btn:hover {
+    background: #1bcdd380;
+    padding: 12px 22px;
+    color: #1b1a1a6c;
 }
