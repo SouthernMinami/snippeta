@@ -17,8 +17,13 @@ class DatabaseHelper
         $result = $stmt->get_result();
         $snippetInfo = $result->fetch_assoc();
 
-        if (!$snippetInfo)
+        if (!$snippetInfo) {
             throw new \InvalidArgumentException(sprintf('pathが %s のデータは見つかりませんでした。', $path));
+        }
+        if (strtotime($snippetInfo['expiration_date']) <= strtotime(date('Y-m-d H:i:s'))) {
+            header('Location: /404');
+            throw new \InvalidArgumentException('このスニペットは保存期限切れです。');
+        }
 
         return $snippetInfo;
     }
@@ -34,6 +39,16 @@ class DatabaseHelper
         $i = 0;
         $snippets = [];
         while ($row = $result->fetch_assoc()) {
+            // expiration_dateが今日以前の場合はDELETEしてスキップ
+            if (strtotime($row['expiration_date']) <= strtotime(date('Y-m-d H:i:s'))) {
+                $query = "DELETE FROM snippets WHERE path = ?";
+                $stmt = $db->prepare($query);
+                $stmt->bind_param('s', $row['path']);
+                $stmt->execute();
+
+                $i++;
+                continue;
+            }
             $snippets[$i] = [
                 'title' => $row['title'],
                 'language' => $row['language'],

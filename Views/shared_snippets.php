@@ -13,6 +13,7 @@ $indexOfFirstSnippet = $indexOfLastSnippet - SNIPPETS_PER_PAGE;
 
 $currSnippets = array_slice($snippets, $indexOfFirstSnippet, $indexOfLastSnippet);
 
+$now = new DateTime();
 ?>
 
 <div class="table">
@@ -36,9 +37,8 @@ $currSnippets = array_slice($snippets, $indexOfFirstSnippet, $indexOfLastSnippet
 <div class="pagination">
     <?php foreach (range(1, PAGE_COUNT) as $page):
         $isCurrPage = $page == $currPage;
-        $rounded = $number == 1 ? 'rounded-l' : ($number == PAGE_COUNT ? 'rounded-r' : '');
         $bgColor = $isCurrPage ? 'bg-gray' : 'bg-skyblue';
 
-        echo '<a href="?page=' . $page . '" class="pagination-btn ' . $bgColor . ' ' . $rounded . '">' . $page . '</a>';
+        echo '<a href="?page=' . $page . '" class="pagination-btn ' . $bgColor . ' ' . '">' . $page . '</a>';
     endforeach; ?>
 </div>
