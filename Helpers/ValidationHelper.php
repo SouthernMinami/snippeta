@@ -18,9 +18,14 @@ class ValidationHelper
 
     public static function string($value): string
     {
-        if (!is_string($value))
+        if (!is_string($value)) {
+            echo "Not string";
             throw new \InvalidArgumentException("The provided value is not a valid string.");
-
+        }
+        if (empty($value)) {
+            echo "Empty string";
+            throw new \InvalidArgumentException("The provided string is empty.");
+        }
         return $value;
     }
 
@@ -31,5 +36,23 @@ class ValidationHelper
             return $prefix;
 
         return $path;
+    }
+
+    public static function code($value): string
+    {
+        if (strlen($value) > 65535) {
+            echo "Too log code";
+            throw new \InvalidArgumentException("Error: The length of the code input exceeds the maximum length.");
+        }
+        if (empty($value)) {
+            echo "Empty code";
+            throw new \InvalidArgumentException("Error: The code input is empty.");
+        }
+        if (!mb_check_encoding($value, 'UTF-8')) {
+            echo "Not UTF-8 code";
+            throw new \InvalidArgumentException("Error: The code input is not a valid UTF-8 string.");
+        }
+
+        return $value;
     }
 }

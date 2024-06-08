@@ -94,6 +94,26 @@ require(['vs/editor/editor.main'], () => {
             .then(res => res.text())
             .then(data => {
                 console.log(data)
+                if (data === 'Not string') {
+                    alert('Error: The provided value is not a string.')
+                    return
+                }
+                if (data === 'Empty string') {
+                    alert('Error: Please enter all the required fields.')
+                    return
+                }
+                if (data === 'Too long code') {
+                    alert('Error: The length of the provided value exceeds the maximum length.')
+                    return
+                }
+                if (data === 'Empty code') {
+                    alert('Error: The code input is empty.')
+                    return
+                }
+                if (data === 'Not UTF-8 code') {
+                    alert('Error: The code input is not UTF-8.')
+                    return
+                }
                 alert('Posted a new snippet!')
             })
             .catch(err => {
