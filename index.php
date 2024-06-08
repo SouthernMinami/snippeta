@@ -13,7 +13,7 @@ spl_autoload_register(function ($class) {
 $DEBUG = true;
 
 // ルーティング
-$routes = include ('Routing/routes.php');
+$routes = include (__DIR__ . '/Routing/routes.php');
 
 // リクエストURLからパスの部分を取得
 // 例: /new -> new
