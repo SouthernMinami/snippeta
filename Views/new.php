@@ -9,8 +9,8 @@ namespace Views;
     <p class="page-description">Share your code snippets with the world, and learn other snippets!</p>
 </div>
 <div class="content">
-    <?php include './Views/component/editor.php'; ?>
-    <?php include './Views/component/form.php'; ?>
+    <?php include '/Views/component/editor.php'; ?>
+    <?php include '/Views/component/form.php'; ?>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.41.0/min/vs/loader.min.js"></script>
