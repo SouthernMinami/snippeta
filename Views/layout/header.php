@@ -23,9 +23,6 @@
                     <li className="nav-item nav-link flex items-center justify-between text-slate-400">
                         <p><a href="/shared_snippets">Find shared snippets</a></p>
                     </li>
-                    <li className="nav-item nav-link flex items-center justify-between text-slate-400">
-                        <p><a href="/howto">How to use</a></p>
-                    </li>
                 </div>
 
             </ul>
