@@ -24,9 +24,6 @@ require(['vs/editor/editor.main'], () => {
         theme: 'vs-dark'
     })
 
-    editor.onDidChangeModelContent(() => {
-    })
-
     // 言語のドロップダウンリストのクリックイベント
     languageItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -40,6 +37,7 @@ require(['vs/editor/editor.main'], () => {
 
             // Monaco Editorのシンタックスハイライトを変更
             monaco.editor.setModelLanguage(editor.getModel(), language.toLowerCase())
+            console.log("Language changed to " + language)
         })
     })
 
