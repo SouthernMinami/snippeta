@@ -14,7 +14,12 @@ class MySQLWrapper extends mysqli
         $password = $password ?? Settings::env('DATABASE_USER_PASSWORD');
         $database = $database ?? Settings::env('DATABASE_NAME');
 
-        parent::__construct($hostname, $username, $password, $database, $port, $socket);
+        try {
+            parent::__construct($hostname, $username, $password, $database, $port, $socket);
+        } catch (\mysqli_sql_exception $e) {
+            error_log($e->getMessage());
+            throw new \mysqli_sql_exception($e->getMessage(), $e->getCode());
+        }
     }
 
     public function getDatabaseName(): string
