@@ -1,7 +1,7 @@
 const languageList = document.getElementById('language-list')
 const copyBtn = document.getElementById('copy-btn')
 const downloadBtn = document.getElementById('download-btn')
-const extensions = { "Javascript": "js", "Python": "py", "PHP": "php", "Ruby": "rb", "Java": "java", "C": "c", "C#": "cs", "C++": "cpp", "Swift": "swift", "Go": "go", "Scala": "scala", "Kotlin": "kt", "Typescript": "ts", "Rust": "rs", "Shell": "sh", "SQL": "sql", "Plaintext": "txt" };
+const extensions = { "JavaScript": "js", "Python": "py", "PHP": "php", "Ruby": "rb", "Java": "java", "C": "c", "C#": "cs", "C++": "cpp", "Swift": "swift", "Go": "go", "Scala": "scala", "Kotlin": "kt", "TypeScript": "ts", "Rust": "rs", "Shell": "sh", "SQL": "sql", "Plaintext": "txt" };
 
 languageList.classList.add('d-none')
 

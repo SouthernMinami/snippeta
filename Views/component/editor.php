@@ -1,5 +1,5 @@
 <?php
-$languages = ["Javascript", "Python", "PHP", "Ruby", "Java", "C", "C#", "C++", "Swift", "Go", "Scala", "Kotlin", "Typescript", "Rust", "Shell", "SQL", "Plaintext"];
+$languages = ["JavaScript", "Python", "PHP", "Ruby", "Java", "C", "C#", "C++", "Swift", "Go", "Scala", "Kotlin", "TypeScript", "Rust", "Shell", "SQL", "Plaintext"];
 
 ?>
 
