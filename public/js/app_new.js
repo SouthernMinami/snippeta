@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         postBtn.addEventListener('click', () => {
             const postData = {
                 "title": document.getElementById('title').value,
-                "language": Array.from(languageItems).find(item => item.getAttribute('class') === 'language-item selected').textContent,
+                "language": document.getElementById('language-list').value,
                 "path": "",
                 "content": editor.getValue(),
                 "expirationDate": document.getElementById('expiration').value
