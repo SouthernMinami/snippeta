@@ -6,7 +6,7 @@ $languages = ["JavaScript", "Python", "PHP", "Ruby", "Java", "C", "C#", "C++", "
 <div class="editor-container">
     <div class="editor-header">
         <div class="editor-header-left">
-            <select id="language-list" name="language">
+            <select id="language-list" name="language" onchange="handleLanguageChange(this)">
                 <?php foreach ($languages as $language): ?>
                     <option class="language-item" value="<?= $language ?>"><?= $language ?></option>
                 <?php endforeach; ?>

@@ -16,31 +16,22 @@ document.addEventListener('DOMContentLoaded', () => {
             theme: 'vs-dark'
         })
 
-        const languageList = document.getElementById('language-list')
-        const languageItems = languageList.querySelectorAll('.language-item')
         const copyBtn = document.getElementById('copy-btn')
         const downloadBtn = document.getElementById('download-btn')
         const postBtn = document.getElementById('post-btn')
-        const extensions = { "JavaScript": "js", "Python": "py", "PHP": "php", "Ruby": "rb", "Java": "java", "C": "c", "C#": "cs", "C++": "cpp", "Swift": "swift", "Go": "go", "Scala": "scala", "Kotlin": "kt", "TypeScript": "ts", "Rust": "rs", "Shell": "sh", "SQL": "sql", "Plaintext": "txt" };
+        const extensions = { "JavaScript": "js", "Python": "py", "PHP": "php", "Ruby": "rb", "Java": "java", "C": "c", "C#": "cs", "C++": "cpp", "Swift": "swift", "Go": "go", "Scala": "scala", "Kotlin": "kt", "TypeScript": "ts", "Rust": "rs", "Shell": "sh", "SQL": "sql", "Plaintext": "txt" }
 
-        languageItems[0].setAttribute('class', 'language-item selected')
+        window.handleLanguageChange = (selectElement) => {
+            // selectタグの現在の値を取得
+            const language = selectElement.value
+            // ダウンロードボタンのテキストとファイル拡張子を変更
+            downloadBtn.textContent = `Download .${extensions[language]} file`
+            downloadBtn.setAttribute('download', `new_snippet.${extensions[language]}`)
+            // Monaco Editorのシンタックスハイライトを変更
+            monaco.editor.setModelLanguage(editor.getModel(), language.toLowerCase())
 
-        // 言語のドロップダウンリストのクリックイベント
-        languageItems.forEach(item => {
-            item.addEventListener('click', () => {
-                console.log(item.textContent)
-                const prev = languageList.querySelector('.selected')
-                prev.setAttribute('class', 'language-item')
-                item.setAttribute('class', 'language-item selected')
-
-                const language = item.textContent
-                downloadBtn.textContent = `Download .${extensions[language]} file`
-                downloadBtn.setAttribute('download', `new_snippet.${extensions[language]}`)
-
-                // Monaco Editorのシンタックスハイライトを変更
-                monaco.editor.setModelLanguage(editor.getModel(), language.toLowerCase())
-            })
-        })
+            console.log("Language changed to: " + language)
+        }
 
         // コピーボタンのクリックイベント
         copyBtn.addEventListener('click', () => {
