@@ -25,6 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         languageItems[0].setAttribute('class', 'language-item selected')
 
+        if (languageItems.length > 0) {
+            console.log("Language items are loaded.")
+        } else {
+            console.error("Failed to load language items.")
+        }
+
         // 言語のドロップダウンリストのクリックイベント
         languageItems.forEach(item => {
             item.addEventListener('click', () => {
