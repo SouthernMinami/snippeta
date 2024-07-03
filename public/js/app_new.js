@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         languageItems[0].setAttribute('class', 'language-item selected')
 
         if (languageItems.length > 0) {
-            console.log("Language items are loaded.")
+            console.log(languageItems[0].textContent)
         } else {
             console.error("Failed to load language items.")
         }
