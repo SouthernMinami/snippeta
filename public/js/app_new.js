@@ -1,12 +1,3 @@
-const languageList = document.getElementById('language-list')
-const languageItems = languageList.querySelectorAll('.language-item')
-const copyBtn = document.getElementById('copy-btn')
-const downloadBtn = document.getElementById('download-btn')
-const postBtn = document.getElementById('post-btn')
-const extensions = { "JavaScript": "js", "Python": "py", "PHP": "php", "Ruby": "rb", "Java": "java", "C": "c", "C#": "cs", "C++": "cpp", "Swift": "swift", "Go": "go", "Scala": "scala", "Kotlin": "kt", "TypeScript": "ts", "Rust": "rs", "Shell": "sh", "SQL": "sql", "Plaintext": "txt" };
-
-languageItems[0].setAttribute('class', 'language-item selected')
-
 // Monaco Editor
 require.config({
     paths: {
@@ -23,6 +14,15 @@ require(['vs/editor/editor.main'], () => {
         automaticLayout: true,
         theme: 'vs-dark'
     })
+
+    const languageList = document.getElementById('language-list')
+    const languageItems = languageList.querySelectorAll('.language-item')
+    const copyBtn = document.getElementById('copy-btn')
+    const downloadBtn = document.getElementById('download-btn')
+    const postBtn = document.getElementById('post-btn')
+    const extensions = { "JavaScript": "js", "Python": "py", "PHP": "php", "Ruby": "rb", "Java": "java", "C": "c", "C#": "cs", "C++": "cpp", "Swift": "swift", "Go": "go", "Scala": "scala", "Kotlin": "kt", "TypeScript": "ts", "Rust": "rs", "Shell": "sh", "SQL": "sql", "Plaintext": "txt" };
+
+    languageItems[0].setAttribute('class', 'language-item selected')
 
     // 言語のドロップダウンリストのクリックイベント
     languageItems.forEach(item => {
