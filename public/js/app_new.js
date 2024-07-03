@@ -48,8 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ダウンロードボタンのクリックイベント
         downloadBtn.addEventListener('click', () => {
             // 選択されている言語を取得
-            // querySelectorAllはNodeListを返すので、findメソッドをサポートしている配列に変換
-            const language = Array.from(languageItems).find(item => item.getAttribute('class') === 'language-item selected').textContent
+            const language = document.getElementById('language-list').value
             const extension = extensions[language]
             const code = editor.getValue()
 
