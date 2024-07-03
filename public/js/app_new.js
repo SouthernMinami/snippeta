@@ -25,14 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         languageItems[0].setAttribute('class', 'language-item selected')
 
-        if (languageItems.length > 0) {
-            console.log(languageItems[0].textContent)
-        } else {
-            console.error("Failed to load language items.")
-        }
-
         // 言語のドロップダウンリストのクリックイベント
         languageItems.forEach(item => {
+            console.log(item.textContent)
             item.addEventListener('click', () => {
                 const prev = languageList.querySelector('.selected')
                 prev.setAttribute('class', 'language-item')
@@ -44,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Monaco Editorのシンタックスハイライトを変更
                 monaco.editor.setModelLanguage(editor.getModel(), language.toLowerCase())
-                console.log("Language changed to " + language)
             })
         })
 
