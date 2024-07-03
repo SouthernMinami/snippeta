@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 言語のドロップダウンリストのクリックイベント
         languageItems.forEach(item => {
-            console.log(item.textContent)
             item.addEventListener('click', () => {
+                console.log(item.textContent)
                 const prev = languageList.querySelector('.selected')
                 prev.setAttribute('class', 'language-item')
                 item.setAttribute('class', 'language-item selected')
