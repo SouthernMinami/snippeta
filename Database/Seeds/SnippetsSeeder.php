@@ -52,6 +52,7 @@ class SnippetsSeeder extends AbstractSeeder
     {
         $data_array = explode(',', $dataStr);
 
+        echo $data_array[0] . PHP_EOL;
         return [
             $data_array
         ];
