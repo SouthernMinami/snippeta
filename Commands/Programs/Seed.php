@@ -21,7 +21,6 @@ class Seed extends AbstractCommand
     public function execute(): int
     {
         $dataStr = $this->getArgValue('data');
-        echo $dataStr;
         $this->runAllSeeds($dataStr);
         return 0;
     }

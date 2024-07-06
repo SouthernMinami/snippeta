@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "expirationDate": document.getElementById('expiration').value
             }
 
-            fetch('/Helpers/execSeedCmd.php', {
+            fetch('../../Helpers/execSeedCmd.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

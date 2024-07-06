@@ -51,6 +51,9 @@ class SnippetsSeeder extends AbstractSeeder
     public function createRowData(string $dataStr): array
     {
         $data_array = explode(',', $dataStr);
+        if (count($data_array) < 5) {
+            throw new \Exception('Data string must contain at least 5 values.');
+        }
 
         return [
             $data_array
