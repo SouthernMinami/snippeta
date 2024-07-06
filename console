@@ -16,6 +16,7 @@ $inputCommand = $argv[1];
 
 foreach ($commands as $commandClass) {
     $alias = $commandClass::getAlias();
+    echo $alias . PHP_EOL;
 
     if ($inputCommand === $alias) {
         if (in_array('--help', $argv)) {
