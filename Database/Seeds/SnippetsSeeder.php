@@ -55,6 +55,7 @@ class SnippetsSeeder extends AbstractSeeder
             throw new \Exception('Data string must contain at least 5 values.');
         }
 
+        echo $data_array[2];
         return [
             $data_array
         ];

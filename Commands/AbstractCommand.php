@@ -59,7 +59,6 @@ abstract class AbstractCommand implements Command
             $arg = $args[$i];
 
             // ハイフンがある場合、ハイフンをキーとして扱う
-            echo substr($arg, 0, 2) . PHP_EOL;
             if (substr($arg, 0, 2) == '--')
                 $key = substr($arg, 2);
             else if ($arg[0] == '-')
