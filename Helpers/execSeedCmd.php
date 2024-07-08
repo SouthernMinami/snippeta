@@ -18,7 +18,7 @@ $expirationDate = ValidationHelper::string($input['expirationDate'] ?? null);
 
 $dataStr = implode(',', [$title, $language, $content, $path, $expirationDate]);
 
-$command = sprintf('php ../console seed --data %s', $dataStr);
+$command = sprintf('php ../console seed --data %s', escapeshellarg($dataStr));
 exec($command, $output, $return_var);
 
 if ($return_var !== 0) {

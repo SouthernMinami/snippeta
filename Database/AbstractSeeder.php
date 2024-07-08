@@ -47,8 +47,6 @@ abstract class AbstractSeeder implements Seeder
     // 各行をtableColumnsと照らし合わせて検証する関数
     protected function validateRow(array $row): void
     {
-        echo count($row) . PHP_EOL;
-        echo count($this->tableColumns) . PHP_EOL;
         if (count($row) !== count($this->tableColumns))
             throw new \Exception('Row does not match the ' . $this->tableName . ' table columns.');
 
