@@ -18,8 +18,12 @@ $expirationDate = ValidationHelper::string($input['expirationDate'] ?? null);
 
 $dataStr = implode(',', [$title, $language, $content, $path, $expirationDate]);
 
-$command = sprintf('php %s/../console seed --data %s', __DIR__, escapeshellarg($dataStr));
+$command = sprintf('php %s/../console seed --data %s %s', __DIR__, escapeshellarg($dataStr), '2>&1');
 exec($command, $output, $return_var);
+
+error_log('Command: ' . $command);
+error_log('Output: ' . implode("\n", $output));
+error_log('Return var: ' . $return_var);
 
 if ($return_var !== 0) {
     throw new \Exception('Failed to seed snippet data.');
