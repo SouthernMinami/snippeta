@@ -12,8 +12,6 @@ spl_autoload_register(function ($class) {
 
 $DEBUG = true;
 
-ini_set('display_errors', '1');
-
 // ルーティング
 $routes = include (__DIR__ . '/Routing/routes.php');
 
