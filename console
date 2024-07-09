@@ -8,6 +8,8 @@ spl_autoload_register(function ($class) {
     }
 });
 
+ini_set('display_errors', '1');
+
 $commands = include "Commands/registry.php";
 // argv[1]（実際に実行するコマンド）
 // (argv[0]はスクリプトの実行に使う名前　console)
