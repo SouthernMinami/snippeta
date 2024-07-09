@@ -15,7 +15,7 @@ class CreateSnippetsTable implements SchemaMigration
                 title VARCHAR(255) NOT NULL,
                 language VARCHAR(255) NOT NULL,
                 content TEXT NOT NULL,
-                url VARCHAR(255) NOT NULL,
+                path VARCHAR(255) NOT NULL,
                 expiration_date TIMESTAMP NOT NULL,
                 created_at TIMESTAMP NOT NULL,
                 updated_at TIMESTAMP NOT NULL
