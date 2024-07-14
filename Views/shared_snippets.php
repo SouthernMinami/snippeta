@@ -4,6 +4,8 @@ namespace Views;
 
 use DateTime;
 
+date_default_timezone_set('Asia/Tokyo');
+
 define('SNIPPETS_PER_PAGE', 5);
 define('PAGE_COUNT', ceil(count($snippets) / SNIPPETS_PER_PAGE));
 
@@ -13,7 +15,7 @@ $indexOfFirstSnippet = $indexOfLastSnippet - SNIPPETS_PER_PAGE;
 
 $currSnippets = array_slice($snippets, $indexOfFirstSnippet, $indexOfLastSnippet);
 
-$now = new DateTime();
+$now = new DateTime('now');
 ?>
 
 <div class="table">
