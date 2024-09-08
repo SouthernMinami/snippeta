@@ -4,7 +4,7 @@
 
 会員登録なしで、誰でもコードスニペットを共有できるWebサイトです。
 
-💻サイトURL: [https://snippeta.kano.wiki/](https://plantuml-problems.kano.wiki/)
+💻サイトURL: [https://snippeta.kano.wiki/](https://snippeta.kano.wiki/)
 
 ## ✨Features
 
