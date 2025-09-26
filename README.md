@@ -62,7 +62,7 @@
 
 ## 📜Log
 
-[作業ログ](https://github.com/SouthernMinami/weekly-report/blob/main/logs/snippeta.md)
+[作業ログ](https://github.com/SouthernMinami/weekly-report/blob/main/logs/pj5-1_snippeta.md)
 
 ## ➡️TBA
 
